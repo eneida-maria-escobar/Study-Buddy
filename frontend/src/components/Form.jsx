@@ -52,8 +52,26 @@ function Form({ route, method }) {
             <button className="form-button" type="submit">
                 {name}
             </button>
+            {method === "login" && (
+                <button
+                    className="form-button"
+                    type="button"
+                    onClick={() => navigate("/register")}
+                >
+                    Create Account
+                </button>
+            )}
+            {method === "register" && (
+                <button
+                    className="form-button"
+                    type="button"
+                    onClick={() => navigate("/login")}
+                >
+                    Back to Login
+                </button>
+            )}
         </form>
     );
 }
 
-export default Form
+export default Form;
