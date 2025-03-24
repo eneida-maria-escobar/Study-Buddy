@@ -1,5 +1,9 @@
+import '../styles/Home.css';
+
 function Home() {
-    return <div>Home</div>
+    return (
+    <div>Study Buddy</div>
+)
 }
 
-export default Home
+export default Home;
