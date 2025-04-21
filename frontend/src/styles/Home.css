@@ -1,0 +1,103 @@
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+body.home-body, html {
+    height: 100%; margin: 0;
+    background: linear-gradient(135deg, #e0f2ff 0%, #f8fcff 100%);
+    background-attachment: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* page-content only adds padding if navbar is fixed */
+.page-content {
+    padding-top: 80px; 
+    padding-bottom: 40px;
+}
+
+.home-container {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 20px; /* Horizontal padding */ color: #004085;
+    box-sizing: border-box; animation: fadeIn 0.6s ease-out forwards;
+    width: 100%; max-width: 700px;
+    margin: 0 auto; /* Center container */
+}
+
+.welcome-heading {
+    font-size: 2.2rem; font-weight: 600; margin-bottom: 15px; color: #0056b3;
+}
+.loading-message { color: #6c757d; margin: 20px 0; }
+
+.study-buddy-section {
+    background-color: rgba(255, 255, 255, 0.8); padding: 20px 25px; border-radius: 18px;
+    margin: 10px 0 25px 0; box-shadow: 0 6px 18px rgba(120, 160, 210, 0.15);
+    border: 1px solid rgba(210, 230, 255, 0.6); width: 90%; max-width: 400px;
+    display: flex; flex-direction: column; align-items: center;
+}
+.pet-display {
+    display: flex; align-items: center; gap: 20px; width: 100%; justify-content: center; margin-bottom: 10px;
+}
+.pet-icon-button { background: none; border: none; padding: 0; cursor: pointer; border-radius: 50%; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.pet-icon-button:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(100, 180, 255, 0.3); }
+.pet-icon-large { font-size: 3.5rem; display: block; animation: bounce 3s infinite ease-in-out; margin: 5px; line-height: 1; }
+.pet-status { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+.pet-message { font-size: 1rem; font-weight: 500; color: #0056b3; margin-top: 0; margin-bottom: 8px; }
+.happiness-text { font-size: 0.9rem; color: #4a77ab; margin: 0 0 5px 0; }
+.happiness-bar-container-home { width: 100%; max-width: 150px; height: 8px; background-color: #e9ecef; border-radius: 4px; overflow: hidden; }
+.happiness-bar-home { height: 100%; background: linear-gradient(90deg, #ffcdd2 0%, #a5d6a7 100%); border-radius: 4px; transition: width 0.5s ease-out; }
+
+.pet-mood-indicator {
+    margin-top: 10px; font-size: 0.9rem; font-style: italic; font-weight: 500;
+    padding: 5px 10px; border-radius: 6px; width: auto; max-width: 80%;
+}
+.pet-mood-indicator.sad { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+.pet-mood-indicator.happy { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+
+.home-prompt { font-size: 1.15rem; color: #0069d9; margin-top: 10px; margin-bottom: 25px; }
+
+/*Vertical Button Group Styles */
+.home-button-group.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 350px; /* Control max width of button column */
+    margin-top: 15px;
+}
+
+.home-button {
+    padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
+    font-size: 0.95rem; font-weight: 600; transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    text-decoration: none; box-shadow: 0 3px 5px rgba(50, 50, 93, 0.1), 0 1px 2px rgba(0, 0, 0, 0.07);
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background-color: #007bff; color: white;
+    width: 100%; /* Make buttons full width of the group */
+    box-sizing: border-box;
+    min-width: unset;
+}
+.home-button:hover:not(:disabled) { background-color: #0056b3; transform: translateY(-2px); box-shadow: 0 5px 10px rgba(50, 50, 93, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); }
+
+.home-button-logout { background-color: #6c757d; color: white; }
+.home-button-logout:hover { background-color: #5a6268; }
+
+.home-button:active:not(:disabled) { transform: translateY(0px) scale(0.98); box-shadow: 0 1px 2px rgba(50, 50, 93, 0.1), 0 1px 1px rgba(0, 0, 0, 0.07); }
+.home-button:disabled { background-color: #adb5bd; color: #e9ecef; cursor: not-allowed; box-shadow: none; transform: none; }
+.home-error { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px; font-size: 0.9rem; width: 90%; max-width: 450px; }
+
+
+@media (max-width: 768px) {
+     .welcome-heading { font-size: 2rem; }
+     .study-buddy-section { width: 95%; max-width: 400px; }
+     .home-button-group.vertical { max-width: 320px; }
+     .home-button { font-size: 0.9rem; padding: 9px 18px;}
+}
+
+@media (max-width: 480px) {
+     .home-container { padding: 0 15px; } /* Adjust padding */
+     .welcome-heading { font-size: 1.8rem;}
+     .study-buddy-section { padding: 15px; }
+     .pet-icon-large { font-size: 3rem; }
+     .home-prompt { font-size: 1.1rem; margin-bottom: 20px;}
+     .home-button-group.vertical { max-width: 90%; }
+     .home-button { font-size: 0.85rem; padding: 8px 15px;}
+}
